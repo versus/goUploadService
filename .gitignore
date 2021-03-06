@@ -1,0 +1,10 @@
+.idea
+.DS_Store
+.vscode
+.env
+
+bin
+vendor
+cover.out
+dist
+*.old
