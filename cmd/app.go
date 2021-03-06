@@ -21,6 +21,7 @@ import (
 const (
 	defaultPort              = 8080
 	defaultTokenValidateDays = 1
+	maxFileSize              = 104857600
 )
 
 var (
@@ -52,11 +53,18 @@ func Run() {
 	})
 
 	m.Post("/upload", binding.MultipartForm(uploadForm{}), func(uf uploadForm) string {
+		if uf.File.Size > maxFileSize {
+			log.Println("Upload error: File is too large")
+			return "Error: file size is too large"
+		}
 		file, err := uf.File.Open()
 		if err != nil {
 			log.Println("Upload error:", err)
 			return "Error: Upload error"
 		}
+
+		log.Println("Size file is ", uf.File.Size)
+
 		buf := new(bytes.Buffer)
 		buf.ReadFrom(file)
 		fileName := "/tmp/" + uf.File.Filename
