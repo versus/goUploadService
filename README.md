@@ -11,7 +11,7 @@
 ### Quickstart
 
 ```bash
-git clone https://github.com/versus/uploadservice.git
+git clone https://github.com/versus/goUploadService.git
 cd uploadservice
 make docker-run
 ```
