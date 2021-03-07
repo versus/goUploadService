@@ -25,11 +25,12 @@ func TestDockerBuild(t *testing.T) {
 func TestDockerComposeBuild(t *testing.T) {
 	t.Parallel()
 	dockerComposeFile := "../docker-compose.yml"
-
-	docker.RunDockerCompose(t, &docker.Options{}, "-f", dockerComposeFile, "build")
-
 	dockerOptions := &docker.Options{}
 
+	//Build docker
+	docker.RunDockerCompose(t, dockerOptions, "-f", dockerComposeFile, "build")
+
+	//Start service
 	docker.RunDockerCompose(t, dockerOptions, "up", "-d")
 	defer docker.RunDockerCompose(t, dockerOptions, "down")
 
