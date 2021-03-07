@@ -21,6 +21,7 @@ func TestDockerBuild(t *testing.T) {
 	// Build the Docker image.
 	docker.Build(t, "../", buildOptions)
 }
+
 func TestDockerComposeBuild(t *testing.T) {
 	t.Parallel()
 	dockerComposeFile := "../docker-compose.yml"
