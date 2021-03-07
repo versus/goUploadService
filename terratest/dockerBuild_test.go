@@ -25,18 +25,12 @@ func TestDockerComposeBuild(t *testing.T) {
 	t.Parallel()
 	dockerComposeFile := "../docker-compose.yml"
 
-	docker.RunDockerCompose(
-		t,
-		&docker.Options{},
-		"-f",
-		dockerComposeFile,
-		"build",
-	)
+	docker.RunDockerCompose(t, &docker.Options{}, "-f", dockerComposeFile, "build")
 
 	dockerOptions := &docker.Options{}
 
-	defer docker.RunDockerCompose(t, dockerOptions, "down")
 	docker.RunDockerCompose(t, dockerOptions, "up", "-d")
+	defer docker.RunDockerCompose(t, dockerOptions, "down")
 
 	serverPort := 8080
 	maxRetries := 5
