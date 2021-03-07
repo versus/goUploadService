@@ -1,7 +1,6 @@
 package test
 
 import (
-	"crypto/tls"
 	"fmt"
 	"testing"
 	"time"
@@ -38,7 +37,6 @@ func TestDockerComposeBuild(t *testing.T) {
 	maxRetries := 5
 	timeBetweenRetries := 2 * time.Second
 	url := fmt.Sprintf("http://localhost:%d/health", serverPort)
-	tlsConfig := tls.Config{}
 
-	http_helper.HttpGetWithRetry(t, url, &tlsConfig, 200, "* Connect checker: OK", maxRetries, timeBetweenRetries)
+	http_helper.HttpGetWithRetry(t, url, nil, 200, "* Connect checker: OK", maxRetries, timeBetweenRetries)
 }
