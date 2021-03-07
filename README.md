@@ -12,8 +12,9 @@
 
 ```bash
 git clone https://github.com/versus/goUploadService.git
+
 cd  goUploadService
-make docker-test
+
 make docker-run
 ```
 * waiting for start the service
