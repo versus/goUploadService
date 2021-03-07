@@ -27,3 +27,7 @@ docker-build:
 .PHONY: docker-run
 docker-run:
 	docker-compose -f docker-compose.yml up --build
+
+.PHONY: docker-test
+docker-test:
+	cd terratest && go test -v -timeout 30m

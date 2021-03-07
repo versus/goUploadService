@@ -21,7 +21,7 @@ import (
 const (
 	defaultPort              = 8080
 	defaultTokenValidateDays = 1
-	maxFileSize              = 104857600
+	maxFileSize              = 104857600 // max file size for upload is 100Mb
 )
 
 var (
@@ -78,6 +78,7 @@ func Run() {
 	})
 
 	m.Get("/token", func(ctx *macaron.Context) string {
+		//TODO: add security code for IP and/or AUTH for this endpoint
 		log.Println("Warning: generated token for ip: " + ctx.RemoteAddr())
 		return jwt.GenerateToken(secretKey, tokenValidateDays)
 	})

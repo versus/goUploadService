@@ -15,7 +15,7 @@ func GenerateToken(secretKey string, validDays int) string {
 	}
 
 	claims := sjwt.New() // Issuer of the token
-	claims.SetIssuer("Ifconfigco")
+	claims.SetIssuer("goUpload")
 	/*
 		claims.SetTokenID()                                                            // UUID generated
 		claims.SetSubject("Bearer Token")                                              // Subject of the token
@@ -39,7 +39,15 @@ func ValidateToken(secretKey string, token string) error {
 	if err != nil {
 		return err
 	}
-	//TODO: add check claims fields if we need
+
+	issuer, err := claims.GetIssuer()
+	if err != nil {
+		return err
+	}
+
+	if issuer != "goUpload" {
+		return errors.New("No valid Issuer ")
+	}
 
 	// Validate will check(if set) Expiration At and Not Before At dates
 	err = claims.Validate()

@@ -13,6 +13,7 @@
 ```bash
 git clone https://github.com/versus/goUploadService.git
 cd  goUploadService
+make docker-test
 make docker-run
 ```
 * waiting for start the service
@@ -73,6 +74,11 @@ make darwin
 ls ./dist
 upload-0.0.2-darwin-amd64  upload-0.0.2-linux-amd64
 
+```
+
+####  Test build and work for Dockerfile and docker-compose.yml files 
+```bash
+make docker-test
 ```
 
 ####  Build docker image versus/go-upload:latest of the service
