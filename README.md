@@ -11,26 +11,25 @@
 ### Quickstart
 
 ```bash
-git clone https://github.com/versus/goUploadService.git
-
-cd  goUploadService
-
-make docker-run
+> git clone https://github.com/versus/goUploadService.git
+.......
+> cd  goUploadService
+> make docker-run
 ```
 * waiting for start the service
 ```bash
-curl  http://localhost:8080/health
+> curl  http://localhost:8080/health
 * Connect checker: OK
  ```
 * try to connect to the service
 ```bash
-curl  http://localhost:8080
+> curl  http://localhost:8080
 Use `curl -F 'file=@nameFile.ext' http://localhost:8080/upload` and see file into /tmp
 
 ```
 * try to upload a file upload.jar to the service
 ```bash
-curl -F 'file=@steam_latest.deb' http://localhost:8080/upload
+> curl -F 'file=@steam_latest.deb' http://localhost:8080/upload
 File steam_latest.deb has been successfully uploaded
 
 ```
@@ -38,14 +37,14 @@ File steam_latest.deb has been successfully uploaded
 * check the file in /tmp directory in the service images
 
 ```bash
-docker exec gouploadservice_go-upload_1 ls /tmp/steam_latest.deb
+> docker exec gouploadservice_go-upload_1 ls /tmp/steam_latest.deb
 /tmp/steam_latest.deb
 
 ```
 
 * get Bearer token to access to prometeus metrics 
 ```bash
-curl  http://localhost:8080/token
+> curl  http://localhost:8080/token
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDY1NjUwMTcsImlzcyI6IklmY29uZmlnY28iLCJuYmYiOjE2MTUwMjkwMTd9.bfCk_76yTozw4LjQ9cH4Ig1GsaRZZPZUbxScY8iFryA
 
 ```
@@ -53,7 +52,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDY1NjUwMTcsImlzcyI6IklmY29uZml
 
 * check prometeus metrics for the service
 ```bash
-curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDY1NjUwMTcsImlzcyI6IklmY29uZmlnY28iLCJuYmYiOjE2MTUwMjkwMTd9.bfCk_76yTozw4LjQ9cH4Ig1GsaRZZPZUbxScY8iFryA"  http://localhost:8080/metrics
+> curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDY1NjUwMTcsImlzcyI6IklmY29uZmlnY28iLCJuYmYiOjE2MTUwMjkwMTd9.bfCk_76yTozw4LjQ9cH4Ig1GsaRZZPZUbxScY8iFryA"  http://localhost:8080/metrics
 
 ```
 
