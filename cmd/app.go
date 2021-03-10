@@ -8,6 +8,7 @@ import (
 	"net/http"
 
 	"mime/multipart"
+	"path/filepath"
 
 	"github.com/go-macaron/binding"
 	"github.com/go-macaron/toolbox"
@@ -67,14 +68,14 @@ func Run() {
 
 		buf := new(bytes.Buffer)
 		buf.ReadFrom(file)
-		fileName := "/tmp/" + uf.File.Filename
+		fileName := "/tmp/" + filepath.Base(uf.File.Filename)
 		err = ioutil.WriteFile(fileName, buf.Bytes(), 0644)
 		if err != nil {
 			log.Println("Upload error:", err)
 			return "Error: Upload error"
 		}
 		opsProcessed.Inc()
-		return "File " + uf.File.Filename + " has been successfully uploaded"
+		return "File " + filepath.Base(uf.File.Filename) + " has been successfully uploaded"
 	})
 
 	m.Get("/token", func(ctx *macaron.Context) string {
