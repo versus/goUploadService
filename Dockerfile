@@ -7,6 +7,9 @@ RUN  cd /upload \
   && CGO_ENABLED=0 GO111MODULE=on go build -o /go/bin/app main.go
 
 FROM alpine:latest
+
+COPY dgoss /dgoss
+RUN chmod 0755 /dgoss/start.sh
 # create non root user
 RUN addgroup --gid 61000 upload && \
     adduser -S --uid 61000 --ingroup upload upload && \
@@ -16,5 +19,6 @@ RUN addgroup --gid 61000 upload && \
 USER upload
 # copy app binary from build
 COPY --from=builder /go/bin/app /app/app
+
 EXPOSE 8080/tcp
 ENTRYPOINT ["/app/app"]

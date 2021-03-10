@@ -3,6 +3,7 @@ GOARCH ?= $(shell go env GOARCH)
 EXE  := upload
 PKG  := github.com/versus/gouploadservice
 VER := 0.0.2
+current_dir := $(shell pwd)
 
 .PHONY: test
 test:
@@ -31,3 +32,6 @@ docker-run:
 .PHONY: docker-test
 docker-test:
 	cd terratest && go test -v -timeout 30m
+	pwd && docker run --rm  -v $(current_dir)/goss.yaml:/goss.yaml -v /var/run/docker.sock:/var/run/docker.sock -e GOSS_FILES_STRATEGY=cp versus197/dgoss-docker-image:latest /usr/local/bin/dgoss run --entrypoint=/dgoss/start.sh versus/go-upload:test
+
+	
