@@ -81,6 +81,8 @@ upload-0.0.2-darwin-amd64  upload-0.0.2-linux-amd64
 make docker-test
 ```
 
+<script id="asciicast-emNJPUoKSGJTsFRSe95RFAkDe" src="https://asciinema.org/a/emNJPUoKSGJTsFRSe95RFAkDe.js" async></script>
+
 ####  Build docker image versus/go-upload:latest of the service
 ```bash
 make docker-build
