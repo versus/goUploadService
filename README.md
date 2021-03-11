@@ -64,6 +64,7 @@ cp example.env .env
 ..... edit .env file.....
 make run
 ```
+[![asciicast](https://asciinema.org/a/6BkTCj7kORvCBUAh84SwJs9hx.svg)](https://asciinema.org/a/6BkTCj7kORvCBUAh84SwJs9hx)
 
 ####  Build linux/darwin file of the service
 
@@ -75,6 +76,7 @@ ls ./dist
 upload-0.0.2-darwin-amd64  upload-0.0.2-linux-amd64
 
 ```
+[![asciicast](https://asciinema.org/a/d56nK5kEWh2a2WgNzRq7YYfxT.svg)](https://asciinema.org/a/d56nK5kEWh2a2WgNzRq7YYfxT)
 
 ####  Test build and work for Dockerfile and docker-compose.yml files 
 ```bash
@@ -86,15 +88,17 @@ make docker-test
 ```bash
 make docker-build
 ```
+[![asciicast](https://asciinema.org/a/V6TvDsos0aI6h74mFf4hfyJj6.svg)](https://asciinema.org/a/V6TvDsos0aI6h74mFf4hfyJj6)
 
 ####  Build docker image and start project in docker environment
 ```bash
 make docker-run
 ```
+[![asciicast](https://asciinema.org/a/U6qAb97yPhJrFlFMCSmy71bxx.svg)](https://asciinema.org/a/U6qAb97yPhJrFlFMCSmy71bxx)
 
 ### Issues
 Please open *issues* here: [New Issue](https://github.com/versus/goUploadService/issues)
 
 ### Suggestions and improvements are welcome.
 
--Valentyn Nastenko(c 2021) https://github.com/versus
+-Valentyn Nastenko(c) 2021 https://github.com/versus
