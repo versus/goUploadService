@@ -65,6 +65,7 @@ cp example.env .env
 make run
 ```
 [![asciicast](https://asciinema.org/a/6BkTCj7kORvCBUAh84SwJs9hx.svg)](https://asciinema.org/a/6BkTCj7kORvCBUAh84SwJs9hx)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fversus%2FgoUploadService.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fversus%2FgoUploadService?ref=badge_shield)
 
 ####  Build linux/darwin file of the service
 
@@ -102,3 +103,6 @@ Please open *issues* here: [New Issue](https://github.com/versus/goUploadService
 ### Suggestions and improvements are welcome.
 
 -Valentyn Nastenko(c) 2021 https://github.com/versus
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fversus%2FgoUploadService.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fversus%2FgoUploadService?ref=badge_large)
